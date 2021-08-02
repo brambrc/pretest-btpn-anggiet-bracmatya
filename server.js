@@ -14,6 +14,7 @@ app.use(logger('dev'));
 app.use(express.urlencoded());
 app.get('/', function(req, res){
  res.json({"BTPN - Pre Test" : "Build microservice API with node.js"});
+ 
 });
 
 //public route (generateToken, create user data)
