@@ -5,6 +5,10 @@ const REDIS_PORT = process.env.REDISTOGO_URLL || 6379;
 const client = redis.createClient(REDIS_PORT);
 const userController = require('../app/api/controllers/userData');
 
+client.on("error", function (err) {
+  console.log("Error " + err);
+});
+
 function cacheAccountNumber(req, res, next) {
     const { accountNumber } = req.params;
   
