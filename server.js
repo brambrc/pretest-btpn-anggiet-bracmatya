@@ -4,6 +4,8 @@ var jwt = require('jsonwebtoken');
 const userData = require('./routes/userData');
 const userDataPrivate = require('./routes/userdataPrivate');
 const mongoose = require('./config/database'); 
+var favicon = require('serve-favicon')
+var path = require('path')
  
 const app = express();
 
@@ -12,8 +14,13 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 app.set('secretKey', 'nodeRestApi');
 app.use(logger('dev'));
 app.use(express.urlencoded());
+
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.get('/', function(req, res){
- res.json({"BTPN - Pre Test" : "Build microservice API with node.js"});
+ res.send(`<html>
+ <head><link rel="shortcut icon" src="image/ico" href="./favicon.ico"></head>
+ <h1> BTPN - Pre Test : Build microservice API with node.js </h1>
+</html>`);
  
 });
 
