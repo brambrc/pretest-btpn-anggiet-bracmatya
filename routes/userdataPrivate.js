@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const redis = require('redis');
 const REDIS_PORT = process.env.REDISTOGO_URL || 6379;
-const client = redis.createClient(REDIS_PORT).client.auth(PASSWORD);;
+const client = redis.createClient(REDIS_PORT).client.auth();;
 const userController = require('../app/api/controllers/userData');
 
 client.on("error", function (err) {
