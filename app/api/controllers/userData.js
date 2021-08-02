@@ -87,7 +87,7 @@ const jwt = require('jsonwebtoken');
         },
 
         delete: function(req, res, next){
-            userModel.findByIdAndRemove(req.body._id, function(err){
+            userModel.findOneAndDelete({accountNumber: req.body.accountNumber}, function(err){
                 if(err){
                     next(err);
                 } else {
