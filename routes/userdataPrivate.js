@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const redis = require('redis');
-const REDIS_PORT = process.env.PORT || 6379;
+const REDIS_PORT = process.env.REDISTOGO_URL || 6379;
 const client = redis.createClient(REDIS_PORT);
 const userController = require('../app/api/controllers/userData');
 
